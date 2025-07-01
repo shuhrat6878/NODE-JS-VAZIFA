@@ -1,22 +1,122 @@
 [
   {
-    "id": null,
-    "fulname": "Aziz Xusnnidinov"
-  },
-  {
     "id": 1,
-    "fulname": " Xursandov Samandar"
+    "name": "Shuxrat",
+    "age": 26,
+    "group_name": "A55"
   },
   {
     "id": 2,
-    "fulname": " Yoldashev Otabek"
+    "name": "Suhrob",
+    "age": 22,
+    "group_name": "B55"
   },
   {
     "id": 3,
-    "fulname": "  Ergashev Yoldashbek a"
+    "name": "Atham",
+    "age": 22,
+    "group_name": "B55"
   },
   {
     "id": 4,
-    "fulname": " Shuxrat Anorboyev"
+    "name": "Dinmuhammad",
+    "age": 22,
+    "group_name": "B55"
+  },
+  {
+    "id": 5,
+    "name": "Jamshid",
+    "age": 22,
+    "group_name": "B55"
+  },
+  {
+    "id": 6,
+    "name": "Kamol",
+    "age": 23,
+    "group_name": "A55"
+  },
+  {
+    "id": 7,
+    "name": "Javohir",
+    "age": 23,
+    "group_name": "A55"
+  },
+  {
+    "id": 8,
+    "name": "Abbos",
+    "age": 23,
+    "group_name": "A55"
+  },
+  {
+    "id": 9,
+    "name": "Fazliddin",
+    "age": 23,
+    "group_name": "A55"
+  },
+  {
+    "id": 10,
+    "name": "Mirohun",
+    "age": 23,
+    "group_name": "A55"
+  },
+  {
+    "id": 11,
+    "name": "Javohir",
+    "age": 19,
+    "group_name": "A55"
+  },
+  {
+    "id": 12,
+    "name": "Jasur",
+    "age": 19,
+    "group_name": "C55"
+  },
+  {
+    "id": 13,
+    "name": "Sardor",
+    "age": 19,
+    "group_name": "C55"
+  },
+  {
+    "id": 14,
+    "name": "Anvar",
+    "age": 19,
+    "group_name": "C55"
+  },
+  {
+    "id": 15,
+    "name": "Azizbek",
+    "age": 19,
+    "group_name": "C55"
+  },
+  {
+    "id": 16,
+    "name": "Muhammad",
+    "age": 25,
+    "group_name": "C55"
+  },
+  {
+    "id": 17,
+    "name": "Abdulaziz",
+    "age": 25,
+    "group_name": "C55"
+  },
+  {
+    "id": 18,
+    "name": "Sardorbek",
+    "age": 25,
+    "group_name": "C55"
+  },
+  {
+    "id": 19,
+    "name": "Daler",
+    "age": 25,
+    "group_name": "C55"
+  },
+  {
+    "id": 20,
+    "name": "Ulugbek",
+    "age": 25,
+    "group_name": "C55"
   }
 ]
