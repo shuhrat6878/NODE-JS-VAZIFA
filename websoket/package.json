@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "name": "websoket",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "ws": "^8.18.3"
+
+  },
+  "devDependencies": {},
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
