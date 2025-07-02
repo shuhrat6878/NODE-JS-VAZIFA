@@ -111,4 +111,30 @@ app.patch('/:id', async (req, res) => {
     }
 });
 
+app.delete('/:id', async (req,res)=>{
+    try {
+         const  students = await read();
+         const id = +req.params.id
+         console.log(id);
+         
+         const  stIndex = students.findIndex((f)=> f.id === id);
+         if(stIndex ===-1){
+            return res.status(404).json({
+                message: "topilmadi"
+            });
+         }
+        students.splice(stIndex,1);
+        await write(students);
+        return res.status(200).json({
+            data: {}
+        })
+
+
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message || "xatolik ku"
+        })
+    }
+})
+
 app.listen(3000, () => console.log("sever 3000 portda ishladi"))
