@@ -78,3 +78,177 @@ GROUP BY customers.id, customers.full_name;
 
 --- select 2
 
+SELECT 
+    o.id AS order_id,
+    p.title AS product_title,
+    oi.quantity
+FROM 
+    orders o
+INNER JOIN order_items oi ON o.id = oi.order_id
+INNER JOIN products p ON oi.praduct_id = p.id
+ORDER BY 
+    o.id;
+
+
+--select 3
+
+SELECT
+    p.title AS product_title,
+    SUM(oi.quantity) AS total_ordered
+FROM
+    order_items oi
+INNER JOIN products p ON oi.praduct_id = p.id
+GROUP BY
+    p.id, p.title
+ORDER BY
+    total_ordered DESC
+LIMIT 3;
+
+
+--select 4
+
+SELECT
+    id,
+    title,
+    stock_qty
+FROM
+    products
+WHERE
+    stock_qty = 0;
+
+UPDATE products SET stock_qty = 0 WHERE id = 3;
+
+
+--update
+
+UPDATE customers
+SET city = 'Andijon'
+WHERE id = 1;
+
+UPDATE products
+SET price = 950.00
+WHERE id = 3;
+
+--delete
+
+SELECT CONSTRAINT_NAME
+FROM information_schema.KEY_COLUMN_USAGE
+WHERE TABLE_NAME = 'order_items'
+  AND COLUMN_NAME = 'praduct_id'
+  AND CONSTRAINT_SCHEMA = 'Dokon';
+
+ALTER TABLE order_items
+DROP FOREIGN KEY order_items_ibfk_2;
+
+
+--altertable
+
+ALTER TABLE customers
+ADD COLUMN email VARCHAR(100);
+
+ALTER TABLE products
+ADD COLUMN category VARCHAR(50);
+
+--join
+
+SELECT
+    c.full_name,
+    o.id AS order_id,
+    p.title AS product_title,
+    oi.quantity
+FROM
+    customers c
+INNER JOIN orders o ON c.id = o.customer_id
+INNER JOIN order_items oi ON o.id = oi.order_id
+INNER JOIN products p ON oi.praduct_id = p.id
+ORDER BY
+    c.full_name, o.id;
+
+---join2
+
+SELECT
+    c.full_name,
+    o.id AS order_id,
+    o.order_date
+FROM
+    customers c
+LEFT JOIN orders o ON c.id = o.customer_id
+ORDER BY
+    c.full_name;
+
+--join3
+
+SELECT
+    o.id AS order_id,
+    o.order_date,
+    c.full_name
+FROM
+    orders o
+RIGHT JOIN customers c ON o.customer_id = c.id
+ORDER BY
+    order_id;
+
+--join4
+
+SELECT
+    c.id,
+    c.full_name,
+    c.city
+FROM
+    customers c
+LEFT JOIN orders o ON c.id = o.customer_id
+WHERE
+    o.id IS NULL;
+
+
+--cros join
+\SELECT 
+    c.full_name,
+    p.title AS product_title
+FROM 
+    customers c
+CROSS JOIN 
+    products p
+ORDER BY 
+    c.full_name, p.title;
+
+--group by
+
+SELECT 
+    c.full_name,
+    SUM(p.price * oi.quantity) AS total_spent
+FROM 
+    customers c
+INNER JOIN orders o ON c.id = o.customer_id
+INNER JOIN order_items oi ON o.id = oi.order_id
+INNER JOIN products p ON oi.praduct_id = p.id
+GROUP BY 
+    c.id, c.full_name
+HAVING 
+    total_spent > 500000;
+
+
+--union
+
+SELECT full_name, city FROM customers WHERE city = 'Toshkent'
+UNION
+SELECT full_name, city FROM customers WHERE city = 'Andijon';
+
+SELECT full_name, city FROM customers WHERE city = 'Toshkent'
+UNION ALL
+SELECT full_name, city FROM customers WHERE city = 'Andijon';
+
+
+--as
+
+SELECT 
+    c.full_name,
+    SUM(p.price * oi.quantity) AS total_spent
+FROM 
+    customers c
+INNER JOIN orders o ON c.id = o.customer_id
+INNER JOIN order_items oi ON o.id = oi.order_id
+INNER JOIN products p ON oi.praduct_id = p.id
+GROUP BY 
+    c.id, c.full_name;
+
