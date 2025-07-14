@@ -9,7 +9,7 @@ router
     .post('/',univerRouter.createUniveristet)
     .get('/', univerRouter.getAllUniversitet)
     .get('/:id',univerRouter.getAllUniversitetBydId)
-    .put('/:id',univerRouter.updateUniversitet)
+    .patch('/:id',univerRouter.updateUniversitet)
     .delete('/:id', univerRouter.deleteUnversitet)
 
 

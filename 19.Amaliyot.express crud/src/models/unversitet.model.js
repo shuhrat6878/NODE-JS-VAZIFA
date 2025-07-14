@@ -9,6 +9,17 @@ const UneversitetSchema = new Schema({
    toJSON: true,
    toObject: true
 });
+UneversitetSchema.virtual('guruh',{
+    ref:"guruh",
+    localField:"_id",
+    foreignField:"universitet_id"
+})
+
+UneversitetSchema.virtual("student", {
+    ref: "student",
+    localField: "_id",
+    foreignField: "universitet_id"
+});
 
 const Universitet =model('Universitet', UneversitetSchema);
 export default Universitet;

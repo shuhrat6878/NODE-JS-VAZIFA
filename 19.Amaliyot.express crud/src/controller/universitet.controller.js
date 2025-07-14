@@ -29,7 +29,12 @@ export class UniversitetController {
      
     async getAllUniversitet(_,res){
         try {
-            const  getUiver = await Universitet.find();
+            const  getUiver = await Universitet.find().populate({
+            path: 'guruh',
+            populate: {
+                    path: 'student'
+                }
+            });
             return res.status(200).json({
                 statusCode: 200,
                 message: "muaffaqqiyatli",
@@ -52,7 +57,12 @@ export class UniversitetController {
                     message: "invalid objekt id hatoooooo"
                 });
             }
-            const getUiver =await Universitet.findById(id);
+            const getUiver =await Universitet.findById(id).populate({
+                path: 'guruh',
+                populate: {
+                    path: 'student'
+                     }
+            });
             if(!getUiver){
                 return res.status(404).json({
                     statusCode: 404,
