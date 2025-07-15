@@ -3,7 +3,7 @@ import Guruh from '../models/guruh.model.js'
 export class GuruhController {
     async createGuruh(req,res){
         try {
-            const guruhName = await Guruh.create({name:req.bod?.name})
+            const guruhName = await Guruh.create({name:req.body?.name})
             if(guruhName){
                 res.status(400).json({
                     statusCode:400,
@@ -26,7 +26,7 @@ export class GuruhController {
 
     async getAllGuruh(req,res){
         try {
-            const  getGuruh = await Guruh.find().populate('univer_id').populate('student');
+            const  getGuruh = await Guruh.find().populate('universitet_id').populate('student');
             return res.status(200).json({
                 statusCode: 200,
                 message: "muaffaqqiyatli",
@@ -49,7 +49,7 @@ export class GuruhController {
                     message: "invalid objekt id hatoooooo"
                 });
             }
-            const getGuruh=await Universitet.findById(id).populate('univer_id').populate('student');
+            const getGuruh=await Universitet.findById(id).populate('universitet_id').populate('student');
             if(!getGuruh){
                 return res.status(404).json({
                     statusCode: 404,
